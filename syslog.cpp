@@ -24,6 +24,7 @@ void setLogLevel(int level)
 void setLogLevel(const std::string &level)
 {
   std::string level_lower_str;
+  level_lower_str.resize(level.size());
   std::transform(level.begin(), level.end(), level_lower_str.begin(), ::tolower);
   auto it = syslog_level_map__.find(level_lower_str);
   if (it != syslog_level_map__.end())
